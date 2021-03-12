@@ -1,0 +1,19 @@
+<h2 class="d-flex justify-content-center mb-3 text-primary border-success">Speakers</h2>
+<ul class="list-group" >
+  <li class="list-group-item bg-light font-weight-bold" (click)="show(speaker.href)" *ngFor="let speaker of speakers">
+    <span tooltip="{{speakerToolTip}}" [max-width]="500"  [show-delay]="1000" placement="right" (mouseover)="GetToolTip(speaker.href)">{{getValue(speaker.data,"Name")}}</span>
+    <div [class]='myclass' *ngIf="showingSpeakerHref === speaker.href" class="bg-transparent h-auto">
+      <ul class="list-group" >
+        <li class="list-group-item " *ngFor="let session of sessions">
+          <h5>{{ getValue(session.data,"Title")}}</h5>
+          <P>{{getValue(session.data,"Timeslot")}}</P>
+          <span>{{getValue(session.data,"Speaker")}}</span>
+
+        </li>
+      </ul>
+
+
+    </div>
+  </li>
+</ul>
+
